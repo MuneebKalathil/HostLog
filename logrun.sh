@@ -10,9 +10,9 @@
 #   crontab -l   // List the crontab jobs
 #   Wait for 10 Mts, You can see a folder inside ".hostlog" with Current date and a text & jpg file inside the folder.
 
-folder=$(whoami)-$(date +"%d-%m-%Y")
+folder=$(date +"%d-%m-%Y")
 
-mkdir -p ~/.hostlog/$folder
-sh ~/.hostlog/hostlog.sh >> ~/.hostlog/$folder/$(date +%H-%M-%S).txt &
+mkdir -p ~/.hostlog/$(whoami)/$folder
+sh ~/.hostlog/hostlog.sh >> ~/.hostlog/$(whoami)/$folder/$(date +%H-%M-%S).txt &
 
-DISPLAY=":0.0" scrot ~/.hostlog/$folder/$(date +%H-%M-%S).jpg &
+DISPLAY=":0.0" scrot ~/.hostlog/$(whoami)/$folder/$(date +%H-%M-%S).jpg &
